@@ -1,0 +1,16 @@
+{
+	ambient 0.75 1 0.75
+	{
+		translate 0 25 -32
+		camera  -1 -1 1 1 -0.1 -200
+		depth 0 -200 (0 0 0)
+	}
+	
+#	wire
+	{
+		translate 0 0 -80
+		rotate Y -60
+		obj "bowling"
+	}
+	
+}

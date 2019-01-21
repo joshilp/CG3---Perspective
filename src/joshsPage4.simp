@@ -1,0 +1,79 @@
+{
+	scale 5 5 5
+	translate 5 -15 -20
+	rotate X 60
+	rotate Y -20
+	rotate Z 20
+	scale .3 .5 .3
+	file "josh_cubeline"
+}
+
+{
+	scale 5 5 5
+	translate -2 -15 -10
+	rotate X 60
+	rotate Y -10
+	rotate Z 20
+	scale .3 .5 .3
+	file "josh_cubeline"
+}
+
+{
+	scale 5 5 5
+	translate -5 -15 0
+	rotate X 50
+	rotate Y 10
+	rotate Z 30
+	scale .3 .3 .3
+	file "josh_cubeline"
+}
+
+{
+	scale 5 5 5
+	translate -40 -45 -20
+	rotate X 50
+	rotate Y 10
+	rotate Z 30
+	scale 2 .75 .75
+	file "josh_cubeline"
+}
+
+{
+	scale 5 5 5
+	translate -40 -80 -20
+	rotate X 50
+	rotate Y 10
+	rotate Z 30
+	scale 2 .75 .75
+	file "josh_cubeline"
+}
+{
+	scale 5 5 5
+	translate -5 -15 0
+	rotate X 50
+	rotate Y 30
+	rotate Z 30
+	scale .3 .3 .3
+	file "josh_cubeline"
+}
+
+{
+	scale 5 5 5
+	translate -5 -15 0
+	rotate X 50
+	rotate Y 50
+	rotate Z 30
+	scale .3 .3 .3
+	file "josh_cubeline"
+}
+
+{
+	scale 5 5 5
+	translate -5 -15 0
+	rotate X 50
+	rotate Y 70
+	rotate Z 30
+	scale .3 .3 .3
+	file "josh_cubeline"
+}
+

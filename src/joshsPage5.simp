@@ -1,0 +1,26 @@
+{
+	translate 5 -10 -200
+	rotate Y 20
+	rotate X 100
+	rotate Z 0
+	scale 2 3 2
+	file "octagon"
+}
+
+{
+	translate -40 -40 -100
+	rotate Y 65
+	rotate X 20
+	rotate Z -20
+	scale 5 5 5
+	file "tri"
+}
+
+{
+	translate -60 -50 -100
+	rotate Y 65
+	rotate X -100
+	rotate Z 0
+	scale 2 2 2
+	file "tri"
+}

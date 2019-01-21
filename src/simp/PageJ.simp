@@ -1,0 +1,17 @@
+{
+	ambient 0.4 0.8 0.3
+	{
+		translate -70 120 80
+		camera  -1 -1 1 1 -0.1 -200
+		depth 0 -200 (0 0 0)
+	}
+	
+#	wire
+	{
+		translate 0 0 -80
+		rotate Y -45
+		scale 0.75 0.75 0.75
+		obj "trex"
+	}
+	
+}
