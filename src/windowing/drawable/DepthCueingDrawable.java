@@ -31,9 +31,8 @@ public class DepthCueingDrawable extends DrawableDecorator {
 	}
 
 	@Override
-	public void setPixel(int x, int y, double z, int argbColor) {
-
-		// System.out.println("argbColor: " +argbColor);
+	public void setPixel(int x, int y, double z, int argbColor) 
+	{
 		Color depth_color = color;
 		Color lighting_calculation = Color.fromARGB(argbColor);
 
@@ -49,10 +48,8 @@ public class DepthCueingDrawable extends DrawableDecorator {
 
 		if (near >= z && z >= far) {
 			// lerp between lighting-calculation color and the depth color
-
 			double r = (z - far) / (near - far);
 			lighting_calculation = lighting_calculation.scale(r).add(depth_color.scale(1 - r));
-			// lighting_calculation = color.BLUE.scale(r).add(color.RED.scale(1-r));
 
 			if ((x > 0 && x < col) && (y > 0 && y < row)) {
 				if (z <= near && z >= zbuffer[y][x]) {
@@ -61,25 +58,14 @@ public class DepthCueingDrawable extends DrawableDecorator {
 				}
 			}
 		}
-
-		// double scaleFactor = (z - far)/Math.abs(far);
-		//
-		// if ((x > 0 && x < col) && (y > 0 && y < row))
-		// {
-		// if (z <= near && z >= zbuffer[y][x])
-		// {
-		// delegate.setPixel(x, y, z, color.scale(scaleFactor).asARGB());
-		// zbuffer[y][x] = z;
-		// }
-		// }
 	}
 
-	private void reset_z() {
+	private void reset_z() 
+	{
 		for (int y = 0; y < row; y++) {
 			for (int x = 0; x < col; x++) {
 				zbuffer[y][x] = far;
 			}
 		}
 	}
-
 }

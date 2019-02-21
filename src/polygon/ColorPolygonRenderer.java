@@ -8,8 +8,8 @@ import line.LineRenderer;
 import windowing.drawable.Drawable;
 import windowing.graphics.Color;
 
-public class ColorPolygonRenderer implements PolygonRenderer {
-
+public class ColorPolygonRenderer implements PolygonRenderer 
+{
 	private static int X = 0;
 	private static int Y = 1;
 	private static int Z = 2;
@@ -36,19 +36,16 @@ public class ColorPolygonRenderer implements PolygonRenderer {
 	}
 
 	@Override
-	public void drawPolygon(Polygon polygon, Drawable drawable, Shader vertexShader) {
+	public void drawPolygon(Polygon polygon, Drawable drawable, Shader vertexShader) 
+	{
 
 		LineRenderer DDAdrawer = DDALineRenderer.make();
-
-		// polygon =
-		// Polygon.makeEnsuringClockwise(polygon.get(0),polygon.get(1),polygon.get(2));
 
 		Chain LChain = polygon.leftChain();
 		Chain RChain = polygon.rightChain();
 
 		int lengthL = LChain.numVertices;
 		int lengthR = RChain.numVertices;
-		// System.out.println("LChain: " + lengthR + " RChain: " + lengthR);
 
 		if ((lengthL + lengthR) >= 3) {
 
@@ -102,24 +99,23 @@ public class ColorPolygonRenderer implements PolygonRenderer {
 				fz_right = p2_xyz[Z];
 			}
 
-			for (int y = (int) p0_xyz[Y]; y > y_bottom; y--) {
+			for (int y = (int) p0_xyz[Y]; y > y_bottom; y--) 
+			{
 				Color color_left = new Color(rgb_left[R] / fz_left, rgb_left[G] / fz_left, rgb_left[B] / fz_left);
-				Color color_right = new Color(rgb_right[R] / fz_right, rgb_right[G] / fz_right,
-						rgb_right[B] / fz_right);
-
-				// System.out.println("L:" +color_left.getR() +" R: " +color_right.getR());
-				// System.out.println("fz_left: " +fz_left +" fz_right: " +fz_right);
+				Color color_right = new Color(rgb_right[R] / fz_right, rgb_right[G] / fz_right, rgb_right[B] / fz_right);
 
 				xleft = (int) Math.round(fx_left);
 				xright = (int) Math.round(fx_right);
 
-				if (xleft <= xright - 1) {
+				if (xleft <= xright - 1) 
+				{
 					Vertex3D v3d_xleft = new Vertex3D(xleft, y, 1.0 / fz_left, vertexShader.shade(color_left));
 					Vertex3D v3d_xright = new Vertex3D(xright - 1, y, 1.0 / fz_right, vertexShader.shade(color_right));
 					DDAdrawer.drawLine(v3d_xleft, v3d_xright, drawable);
 				}
 
-				if (y > y_middle) {
+				if (y > y_middle) 
+				{
 					fx_left -= m_left[MX];
 					fx_right -= m_right[MX];
 
@@ -135,7 +131,8 @@ public class ColorPolygonRenderer implements PolygonRenderer {
 					fz_right -= m_right[MZ];
 				}
 
-				if (y <= y_middle && p1_xyz[Y] > p2_xyz[Y]) {
+				if (y <= y_middle && p1_xyz[Y] > p2_xyz[Y]) 
+				{
 					fx_left -= m_low[MX];
 					fx_right -= m_right[MX];
 
@@ -151,7 +148,8 @@ public class ColorPolygonRenderer implements PolygonRenderer {
 					fz_right -= m_right[MZ];
 				}
 
-				if (y <= y_middle && p1_xyz[Y] < p2_xyz[Y]) {
+				if (y <= y_middle && p1_xyz[Y] < p2_xyz[Y]) 
+				{
 					fx_left -= m_left[MX];
 					fx_right -= m_low[MX];
 
@@ -166,17 +164,17 @@ public class ColorPolygonRenderer implements PolygonRenderer {
 					fz_left -= m_left[MZ];
 					fz_right -= m_low[MZ];
 				}
-
 			}
-
 		}
 	}
 
-	public static PolygonRenderer make() {
+	public static PolygonRenderer make() 
+	{
 		return new ColorPolygonRenderer();
 	}
 
-	double[] get_xyz(Vertex3D point) {
+	double[] get_xyz(Vertex3D point) 
+	{
 		double[] xyz = new double[3];
 
 		xyz[X] = point.getIntX();
@@ -186,7 +184,8 @@ public class ColorPolygonRenderer implements PolygonRenderer {
 		return xyz;
 	}
 
-	double[] get_rgb(Vertex3D point) {
+	double[] get_rgb(Vertex3D point) 
+	{
 		double[] rgb = new double[3];
 		double[] xyz = get_xyz(point);
 
@@ -197,7 +196,8 @@ public class ColorPolygonRenderer implements PolygonRenderer {
 		return rgb;
 	}
 
-	double[] get_d(Vertex3D point1, Vertex3D point2) {
+	double[] get_d(Vertex3D point1, Vertex3D point2) 
+	{
 		double[] p1_xyz = get_xyz(point1);
 		double[] p2_xyz = get_xyz(point2);
 		double[] p1_rgb = get_rgb(point1);
@@ -215,7 +215,8 @@ public class ColorPolygonRenderer implements PolygonRenderer {
 		return d;
 	}
 
-	double[] get_m(Vertex3D point1, Vertex3D point2) {
+	double[] get_m(Vertex3D point1, Vertex3D point2) 
+	{
 		double[] d = get_d(point1, point2);
 		double[] m = new double[5];
 
@@ -227,5 +228,4 @@ public class ColorPolygonRenderer implements PolygonRenderer {
 
 		return m;
 	}
-
 }
