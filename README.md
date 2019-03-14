@@ -1,6 +1,6 @@
 # Adding Perspective
 
-The third step in rendering 3D geometry is to add persective to the polygon objects. This projects implements an obj reader to read vertex coordinates, and also Perspective-Correct Interpolation for proper perspective rendering.
+The third step in rendering 3D geometry is to add perspective to the polygon objects. This projects implements an obj reader to read vertex coordinates, and also Perspective-Correct Interpolation for proper perspective rendering.
 
 ## Languages Used
 
